@@ -7,3 +7,4 @@ TODOs
 - add abstract and attractive figure
 - fork other repos used
 - add NIfTI code to StyleGAN2 forked repos
+- add statistical testing
