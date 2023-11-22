@@ -4,3 +4,6 @@
 [submodule "data-efficient-gans"]
 	path = data-efficient-gans
 	url = https://github.com/mckellwoodland/data-efficient-gans.git
+[submodule "DeceiveD"]
+	path = DeceiveD
+	url = https://github.com/mckellwoodland/DeceiveD.git
