@@ -1,10 +1,5 @@
-# The Importance of Feature Extraction in the Fréchet Distance Calculation for Medical Imaging - Official Repository
+# Importance of Feature Extraction in the Calculation of Fréchet Distance Calculation for Medical Imaging - Official Repository
+**Importance of Feature Extraction in the Calculation of Fréchet Distance Calculation for Medical Imaging**
 
-TODOs
-- add preprocessing code
-- beautify preproccessing code
-- add paper to arXiv & add link to arXiv
-- add abstract and attractive figure
-- fork other repos used
-- add NIfTI code to StyleGAN2 forked repos
-- add statistical testing
+M. Woodland, M. Al Taie, J. Albuquerque Marques Silva, M. Eltaher, F. Mohn, A. Shieh, A. Castelo, S. Kundu, J.P. Yung, A.B. Patel, & K.K. Brock
+
