@@ -7,3 +7,6 @@
 [submodule "DeceiveD"]
 	path = DeceiveD
 	url = https://github.com/mckellwoodland/DeceiveD.git
+[submodule "PyTorch-StudioGAN"]
+	path = PyTorch-StudioGAN
+	url = https://github.com/mckellwoodland/PyTorch-StudioGAN.git
