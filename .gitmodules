@@ -10,3 +10,6 @@
 [submodule "PyTorch-StudioGAN"]
 	path = PyTorch-StudioGAN
 	url = https://github.com/mckellwoodland/PyTorch-StudioGAN.git
+[submodule "radfid"]
+	path = radfid
+	url = https://github.com/mckellwoodland/radfid.git
