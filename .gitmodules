@@ -1,3 +1,6 @@
 [submodule "stylegan2-ada-pytorch"]
 	path = stylegan2-ada-pytorch
 	url = https://github.com/mckellwoodland/stylegan2-ada-pytorch.git
+[submodule "data-efficient-gans"]
+	path = data-efficient-gans
+	url = https://github.com/mckellwoodland/data-efficient-gans.git
