@@ -1,5 +1,9 @@
 """
-Preprocess ACDC cine MR images.
+Prepare the ACDC images.
+1. Convert 4D to 2D NIfTIs.
+2. Pad image so that it is square.
+3. Resize image to shape (256, 256).
+4. Rescale image to range [0, 255].
 """
 
 # Imports
@@ -13,8 +17,8 @@ import numpy as np
 parser = argparse.ArgumentParser()
 parser._action_groups.pop()
 required = parser.add_argument_group('Required Arguments')
-required.add_argument('--in_dir', required=True, type=str, help='Path to folder containing 4D NIfTIs to convert')
-required.add_argument('--out_dir', required=True, type=str, help='Path to folder to put 2D NIfTi slices into')
+required.add_argument('--in_dir', required=True, type=str, help='Path to folder containing original 4D NIfTIs.')
+required.add_argument('--out_dir', required=True, type=str, help='Path to folder to put processed 2D NIfTi slices into.')
 args = parser.parse_args()
 in_dir = args.in_dir
 out_dir = args.out_dir
