@@ -1,5 +1,7 @@
 """
-Convert a MHD file to 2D NIfTI images
+Prepare the SLIVER07 images.
+1. Convert MHD files to 2D NIfTI images.
+2. Rescale images to 0-255.
 """
 
 # Imports
