@@ -1,5 +1,6 @@
 """
-Convert all PNG images in a folder to grayscale.
+Prepare the ChestX-ray14 images.
+1. Convert all PNG images in a folder to grayscale.
 """
 
 # Imports
