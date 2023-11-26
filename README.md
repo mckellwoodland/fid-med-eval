@@ -14,8 +14,6 @@ Article available on arXiv.
 
 Preprocess all data using the files in `utils`.
 
-Train the models using the `stylegan2-ada-pytorch`, `DeceiveD`, and `data-efficient-gans` forks.
-
 Train a StyleGAN2 model without augmentation.
 ```
 python stylegan2-ada-pytorch/train.py --outdir {OUT_DIR} \
@@ -66,8 +64,41 @@ python stylegan2-ada-pytorch/generate.py --network {MODEL_WEIGHTS} \
                                          --outdir {OUT_DIR}
 ```
 
+Evaluate the RadFID.
+```
+python radfid-main/calc_radfid.py --image_size {IMG_SIZE} \
+                                  --img_dir_gen {GEN_DIR} \
+                                  --img_dir_real {REAL_DIR} \
+                                  --batch_size {BATCH_SIZE} \
+                                  --metric radfid \
+                                  --out_path {LOG_PATH}
+```
+
+Evaluate the ImageNet Fréchet distances, precision, and recall with the StudioGAN fork. Possible backbones: `InceptionV3_tf`, `InceptionV3_torch`, `ResNet50_torch`, `SwAV_torch`, `DINO_torch`, `Swin-T_torch`.
+```
+python PyTorch-StudioGAN-master/src/evaluate.py --metrics fid prdc \
+                                                --dset1 {GEN_DIR} \
+                                                --dset2 {REAL_DIR} \
+                                                --post_resizer clean \
+                                                --eval_backbone {BACKBONE} \
+                                                --out_path {LOG_PATH}
+```
+
+To get the relative Fréchet distance, divide by the Fréchet distance calculated on a random split of the real data. You may use the same commands as above to do so, except switch the `GEN_DIR` and `REAL_DIR` for the two halfs of the dataset. Code for splitting a datset into two folders in available in `utils`.
+```
+python split_datasets.py --in_dir {FULL_DIR} \
+                         --out_dir1 {HALF1_OUT_DIR} \
+                         --out_dir2 {HALF2_OUT_DIR}
+```
+
+Functionality to run all statistical tests is also available in `utils`. Possible tests (not case-sensitive): Kolgomorov-Smirnov `KS`, paired *t* test `Pair`, indepdent *t* test `Ind_T`, and the Pearson correlation `Pearson`.
+```
+python statistical_tests.py --test {TEST} \
+                            --csv {RESULT_CSV} \
+                            --num_col {COL_TO_COMPARE} \
+                            --split {LABEL_COL}
+```
+
 # Citation
 
-If you have found our work useful, we would appreciate a citation
-```
-```
+If you have found our work useful, we would appreciate a citation of our arXiv submission.
