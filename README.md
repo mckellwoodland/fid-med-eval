@@ -1,5 +1,8 @@
 # Importance of Feature Extraction in the Calculation of Fréchet Distance Calculation for Medical Imaging - Official Repository
 
+<p><img src="https://github.com/mckellwoodland/fid-med-eval/blob/main/figures/graphical_abstract.png"
+</p>
+
 **Importance of Feature Extraction in the Calculation of Fréchet Distance Calculation for Medical Imaging**
 M. Woodland, M. Al Taie, J. Albuquerque Marques Silva, M. Eltaher, F. Mohn, A. Shieh, A. Castelo, S. Kundu, J.P. Yung, A.B. Patel, & K.K. Brock
 
