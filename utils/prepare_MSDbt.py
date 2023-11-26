@@ -1,11 +1,11 @@
 """
-Preprocess MSD brain images.
+Prepare the MSD brain tumor images.
 
 Processing:
 1. Separate the 4D image into 4 types (FLAIR, T1w, T1gd, T2w).
-2. Converts to 2D slices. It only keeps the slices where at least 15% of the pixels are non-zero.
-3. Rescales individual slices to the range [0, 255].
-4. Pads images with 0 pixels so the slice is of shape (256, 256).
+2. Convert to 2D slices. It only keeps the slices where at least 15% of the pixels are non-zero.
+3. Rescale individual slices to the range [0, 255].
+4. Pad images with 0 pixels so the slice is of shape (256, 256).
 """
 
 # Imports
@@ -19,8 +19,8 @@ import numpy as np
 parser = argparse.ArgumentParser()
 parser._action_groups.pop()
 required = parser.add_argument_group('Required Arguments')
-required.add_argument('--in_dir', required=True, type=str, help='Path to folder containing 3D NIfTIs to convert')
-required.add_argument('--out_dir', required=True, type=str, help='Path to folder to put consolidated and scaled 2D NIfTi slices into')
+required.add_argument('--in_dir', required=True, type=str, help='Path to folder containing original 3D NIfTIs.')
+required.add_argument('--out_dir', required=True, type=str, help='Path to folder to put processed 2D NIfTi slices into.')
 args = parser.parse_args()
 in_dir = args.in_dir
 out_dir = args.out_dir
