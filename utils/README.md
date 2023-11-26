@@ -68,3 +68,40 @@ Required Arguments:
   --in_dir IN_DIR    Path to folder containing original 4D NIfTIs.
   --out_dir OUT_DIR  Path to folder to put processed 2D NIfTi slices into.
 ```
+
+# Statistical Tests
+
+Running the statistical tests in the paper requires a csv file with observations. 
+
+```
+usage: statistical_tests.py [-h] --test TEST [--csv CSV] [--num_col NUM_COL] [--split SPLIT] [--alternative ALTERNATIVE] [--segments [SEGMENTS ...]]
+
+Required Arguments:
+  --test TEST           Which test to use. Two-sample Kolmogorov-Smirnov test, paired t test, independent t test, or Pearson correlation. Options: {'KS','Pair', 'Ind_T', 'Pearson'}.
+  --csv CSV             Path to the csv file containing the observations.
+  --num_col NUM_COL     Name of column containing information to compare.
+  --split SPLIT         Column to split the data on.
+
+Optional Arguments:
+  --alternative ALTERNATIVE
+                        Defines null and alternate hypotheses. Options: {'two-sided','less','greater'}. Default: 'two-sided'
+  --segments [SEGMENTS ...]
+                        Space separated list of column names. Perform the test separately for unique values in each column.
+```
+
+For example, if I had a csv file named `frechet_distances.csv` with columns 'Dataset', 'Augmentation', 'Backbone', 'Distance', I could compute the Pearson correlation between the Fréchet distances calculated using various backbone architectures by:
+```
+python statistical_tests.py --test Pearson \
+                            --csv frechet_distances.csv \
+                            --num_col Distance \
+                            --split Backbone
+```
+
+Furthermore, I could compute the correlation by dataset with
+```
+python statistical_tests.py --test Pearson \
+                            --csv frechet_distances.csv \
+                            --num_col Distance \
+                            --split Backbone \
+                            --segments Dataset
+```
