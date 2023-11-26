@@ -105,3 +105,15 @@ python statistical_tests.py --test Pearson \
                             --split Backbone \
                             --segments Dataset
 ```
+
+# Split dataset
+
+We provide the functionality to randomly split a dataset in half so that the Fréchet distance between the two halfs may be calculated.
+```
+usage: split_datasets.py [-h] --in_dir IN_DIR --out_dir1 OUT_DIR1 --out_dir2 OUT_DIR2
+
+Required Arguments:
+  --in_dir IN_DIR      Path to folder containing dataset to split.
+  --out_dir1 OUT_DIR1  Path to folder to put first half of the dataset into.
+  --out_dir2 OUT_DIR2  Path to folder to put second half of the dataset into.
+```
