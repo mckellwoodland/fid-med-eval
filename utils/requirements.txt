@@ -1,0 +1,8 @@
+argparse
+nibabel
+numpy
+pandas
+pillow
+scipy
+SimpleITK
+tqdm
