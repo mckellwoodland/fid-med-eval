@@ -21,16 +21,26 @@ docker run -it -v {DIR}:/workspace {CONTAINER_NAME} /bin/bash
 # Preprocessing Images
 ## ChestX-ray14
 Download dataset from [this url](https://nihcc.app.box.com/v/ChestXray-NIHCC/folder/37178474737).
-Convert all images to grayscale (about 1,000 have four channels).
+
+Convert all images to one channel images (about 1,000 have four channels).
 ```
-python prepare_chestxray14.py --in_dir {RAW_DIR} --out_dir {PROCESSED_DIR}
+usage: prepare_chestxray14.py [-h] --in_dir IN_DIR --out_dir OUT_DIR
+
+Required Arguments:
+  --in_dir IN_DIR    Path to folder containing original PNGs.
+  --out_dir OUT_DIR  Path to folder to put processed PNGs into.
 ```
 
 ## SLIVER07
+Download dataset from [this url](https://sliver07.grand-challenge.org/).
 
-Convert MHD files to NIfTI. Rescales to 0, 255.
+Convert MHD files to NIfTI. Rescale to 0-255.
 ```
-python mhd_to_nifti.py --in_dir {RAW_DIR} --out_dir {PROCESSED_DIR}
+usage: prepare_sliver07.py [-h] --in_dir IN_DIR --out_dir OUT_DIR
+
+Required Arguments:
+  --in_dir IN_DIR    Path to folder containing original MHD files.
+  --out_dir OUT_DIR  Path to folder to put processed NIfTIs into.
 ```
 
 ## MSD - Brain Tumor
