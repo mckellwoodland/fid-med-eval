@@ -3,19 +3,19 @@
 Build Docker container
 
 ```
-docker build -t preprocessing .
+docker build -t {CONTAINER_NAME} .
 ```
 
 Run the docker container.
 
 ```
-docker run -it preprocessing /bin/bash
+docker run -it {CONTAINER_NAME} /bin/bash
 ```
 
 If you need access to files outside of the preprocessing folder, you can mount a directory.
 
 ```
-docker run -it -v {DIR}:/workspace preprocessing /bin/bash
+docker run -it -v {DIR}:/workspace {CONTAINER_NAME} /bin/bash
 ```
 
 # ChestXray14
