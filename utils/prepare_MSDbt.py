@@ -1,7 +1,5 @@
 """
 Prepare the MSD brain tumor images.
-
-Processing:
 1. Separate the 4D image into 4 types (FLAIR, T1w, T1gd, T2w).
 2. Convert to 2D slices. It only keeps the slices where at least 15% of the pixels are non-zero.
 3. Rescale individual slices to the range [0, 255].
