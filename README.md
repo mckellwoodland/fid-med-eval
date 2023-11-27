@@ -15,45 +15,50 @@ Article available on [arXiv](https://arxiv.org/abs/2311.13717).
 
 Preprocess all data using the files in `utils`.
 
+Build the Docker container.
+```
+docker build --tag sg2ada:latest stylegan2-ada-pytorch/.
+```
+
 Train a StyleGAN2<sup>1</sup> model without augmentation.
 ```
-python stylegan2-ada-pytorch/train.py --outdir {OUT_DIR} \
-                                      --gpus {GPUS} \
-                                      --data {PROCESSED_DIR} \
-                                      --cfg stylegan2 \
-                                      --aug noaug \
-                                      --gamma 8.2
+stylegan2-ada-pytorch/docker_run.sh python stylegan2-ada-pytorch/train.py --outdir {OUT_DIR} \
+                                                                          --gpus {GPUS} \
+                                                                          --data {PROCESSED_DIR} \
+                                                                          --cfg stylegan2 \
+                                                                          --aug noaug \
+                                                                          --gamma 8.2
 ```
 
 Train a StyleGAN2 model with ADA<sup>2</sup>. For the MSD dataset, use `--augpipe bgcfn`.
 ```
-python stylegan2-ada-pytorch/train.py --outdir {OUT_DIR} \
-                                      --gpus {GPUS} \
-                                      --data {PROCESSED_DIR} \
-                                      --cfg stylegan2 \
-                                      --augpipe bgcfnc \
-                                      --gamma 8.2
+stylegan2-ada-pytorch/docker_run.sh python stylegan2-ada-pytorch/train.py --outdir {OUT_DIR} \
+                                                                          --gpus {GPUS} \
+                                                                          --data {PROCESSED_DIR} \
+                                                                          --cfg stylegan2 \
+                                                                          --augpipe bgcfnc \
+                                                                          --gamma 8.2
 ```
 
 Train a StyleGAN2 model with APA<sup>3</sup>.
 ```
-python DeceiveD-main/train.py --outdir {OUT_DIR} \
-                              --gpus {GPUS} \
-                              --data {PROCESSED_DIR} \
-                              --cfg stylegan2 \
-                              --aug apa \
-                              --gamma 8.2
+stylegan2-ada-pytorch/docker_run.sh python DeceiveD-main/train.py --outdir {OUT_DIR} \
+                                                                  --gpus {GPUS} \
+                                                                  --data {PROCESSED_DIR} \
+                                                                  --cfg stylegan2 \
+                                                                  --aug apa \
+                                                                  --gamma 8.2
 ```
 
 Train a StyleGAN2 model with DiffAugment<sup>4</sup>. For the MSD<sup>5</sup> dataset, use `--DiffAugment color,translation`.
 ```
-python data-efficient-gans-master/DiffAugment-stylegan2-pytorch/train.py --outdir {OUT_DIR} \
-                                                                         --gpus {GPUS} \
-                                                                         --data {PROCESSED_DIR} \
-                                                                         --cfg stylegan2 \
-                                                                         --aug noaug \
-                                                                         --DiffAugment color,translation,cutout \
-                                                                         --gamma 8.2
+stylegan2-ada-pytorch/docker_run.sh python data-efficient-gans-master/DiffAugment-stylegan2-pytorch/train.py --outdir {OUT_DIR} \
+                                                                                                             --gpus {GPUS} \
+                                                                                                             --data {PROCESSED_DIR} \
+                                                                                                             --cfg stylegan2 \
+                                                                                                             --aug noaug \
+                                                                                                             --DiffAugment color,translation,cutout \
+                                                                                                             --gamma 8.2
 ```
 
 For training models on NIfTI or DICOM images, use the nifti branch of the forked repos.
@@ -62,9 +67,9 @@ For training models on NIfTI or DICOM images, use the nifti branch of the forked
 
 Generate 50,000 images per model. Use the weights associated with 25k kimgs for the ChestX-ray14<sup>6</sup>, SLIVER07<sup>7</sup>, and ACDC<sup>8</sup> datasets (i.e. `network-snapshot-025000.pkl`) and 5k kimgs for the MSD dataset.
 ```
-python stylegan2-ada-pytorch/generate.py --network {MODEL_WEIGHTS} \
-                                         --seeds 0-49999 \
-                                         --outdir {OUT_DIR}
+stylegan2-ada-pytorch/docker_run.sh python stylegan2-ada-pytorch/generate.py --network {MODEL_WEIGHTS} \
+                                                                             --seeds 0-49999 \
+                                                                             --outdir {OUT_DIR}
 ```
 
 Evaluate the RadFID.
@@ -78,6 +83,11 @@ python radfid-main/calc_radfid.py --image_size {IMG_SIZE} \
 ```
 
 Evaluate the ImageNet Fréchet distances, precision, and recall<sup>9</sup> with the StudioGAN<sup>10</sup> fork. Possible backbones: `InceptionV3_tf`, `InceptionV3_torch`<sup>11</sup>, `ResNet50_torch`<sup>12</sup>, `SwAV_torch`<sup>13</sup>, `DINO_torch`<sup>14</sup>, `Swin-T_torch`<sup>15</sup>.
+
+The StudioGAN docker container can be pulled by:
+```
+docker pull alex4727/experiment:pytorch113_cuda116
+```
 
 Note, to use the ResNet50 backbone, you'll need to use our 'fid_med_eval' branch of the StudioGAN fork.
 ```
