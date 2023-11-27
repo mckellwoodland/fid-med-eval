@@ -56,6 +56,8 @@ python data-efficient-gans-master/DiffAugment-stylegan2-pytorch/train.py --outdi
                                                                          --gamma 8.2
 ```
 
+For training models on NIfTI or DICOM images, use the nifti branch of the forked repos.
+
 # Evaluating generative models
 
 Generate 50,000 images per model. Use the weights associated with 25k kimgs for the ChestX-ray14, SLIVER07, and ACDC datasets (i.e. `network-snapshot-025000.pkl`) and 5k kimgs for the MSD dataset.
