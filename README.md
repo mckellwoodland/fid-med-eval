@@ -117,3 +117,7 @@ If you have found our work useful, we would appreciate a citation of our arXiv s
       primaryClass={cs.CV}
 }
 ```
+
+# Acknowledgments
+
+Research reported in this publication was supported in part by resources of the Image Guided Cancer Therapy Research Program at The University of Texas MD Anderson Cancer Center, by a generous gift from the Apache Corporation, and by the Tumor Measurement Initiative through the MD Anderson Strategic Initiative Development Program (STRIDE).
