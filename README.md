@@ -15,7 +15,7 @@ Article available on [arXiv](https://arxiv.org/abs/2311.13717).
 
 Preprocess all data using the files in `utils`.
 
-Train a StyleGAN2 model without augmentation.
+Train a StyleGAN2<sup>1</sup> model without augmentation.
 ```
 python stylegan2-ada-pytorch/train.py --outdir {OUT_DIR} \
                                       --gpus {GPUS} \
@@ -25,7 +25,7 @@ python stylegan2-ada-pytorch/train.py --outdir {OUT_DIR} \
                                       --gamma 8.2
 ```
 
-Train a StyleGAN2 model with ADA. For the MSD dataset, use `--augpipe bgcfn`.
+Train a StyleGAN2 model with ADA<sup>2</sup>. For the MSD dataset, use `--augpipe bgcfn`.
 ```
 python stylegan2-ada-pytorch/train.py --outdir {OUT_DIR} \
                                       --gpus {GPUS} \
@@ -35,7 +35,7 @@ python stylegan2-ada-pytorch/train.py --outdir {OUT_DIR} \
                                       --gamma 8.2
 ```
 
-Train a StyleGAN2 model with APA.
+Train a StyleGAN2 model with APA<sup>3</sup>.
 ```
 python DeceiveD-main/train.py --outdir {OUT_DIR} \
                               --gpus {GPUS} \
@@ -45,7 +45,7 @@ python DeceiveD-main/train.py --outdir {OUT_DIR} \
                               --gamma 8.2
 ```
 
-Train a StyleGAN2 model with DiffAugment. For the MSD dataset, use `--DiffAugment color,translation`.
+Train a StyleGAN2 model with DiffAugment<sup>4</sup>. For the MSD<sup>5</sup> dataset, use `--DiffAugment color,translation`.
 ```
 python data-efficient-gans-master/DiffAugment-stylegan2-pytorch/train.py --outdir {OUT_DIR} \
                                                                          --gpus {GPUS} \
@@ -60,7 +60,7 @@ For training models on NIfTI or DICOM images, use the nifti branch of the forked
 
 # Evaluating generative models
 
-Generate 50,000 images per model. Use the weights associated with 25k kimgs for the ChestX-ray14, SLIVER07, and ACDC datasets (i.e. `network-snapshot-025000.pkl`) and 5k kimgs for the MSD dataset.
+Generate 50,000 images per model. Use the weights associated with 25k kimgs for the ChestX-ray14<sup>6</sup>, SLIVER07<sup>7</sup>, and ACDC<sup>8</sup> datasets (i.e. `network-snapshot-025000.pkl`) and 5k kimgs for the MSD dataset.
 ```
 python stylegan2-ada-pytorch/generate.py --network {MODEL_WEIGHTS} \
                                          --seeds 0-49999 \
@@ -77,7 +77,7 @@ python radfid-main/calc_radfid.py --image_size {IMG_SIZE} \
                                   --out_path {LOG_PATH}
 ```
 
-Evaluate the ImageNet Fréchet distances, precision, and recall with the StudioGAN fork. Possible backbones: `InceptionV3_tf`, `InceptionV3_torch`, `ResNet50_torch`, `SwAV_torch`, `DINO_torch`, `Swin-T_torch`.
+Evaluate the ImageNet Fréchet distances, precision, and recall<sup>9</sup> with the StudioGAN<sup>10</sup> fork. Possible backbones: `InceptionV3_tf`, `InceptionV3_torch`<sup>11</sup>, `ResNet50_torch`<sup>12</sup>, `SwAV_torch`<sup>13</sup>, `DINO_torch`<sup>14</sup>, `Swin-T_torch`<sup>15</sup>.
 
 Note, to use the ResNet50 backbone, you'll need to use our 'fid_med_eval' branch of the StudioGAN fork.
 ```
@@ -121,3 +121,21 @@ If you have found our work useful, we would appreciate a citation of our arXiv s
 # Acknowledgments
 
 Research reported in this publication was supported in part by resources of the Image Guided Cancer Therapy Research Program at The University of Texas MD Anderson Cancer Center, by a generous gift from the Apache Corporation, and by the Tumor Measurement Initiative through the MD Anderson Strategic Initiative Development Program (STRIDE).
+
+# References
+1. Tero Karras et al. Analyzing and improving the image quality of StyleGAN. In CVPR, IEEE, pages 8110-8119, 2020.
+2. Tero Karras et al. Training generative adversarial networks with limited data. In H. Larochelle, M. Ranzato, R. Hadsell, M. Balcan, and H. Lin (eds) Adv Neural Inf Syst Process, Curran Associates, Inc., 33:12104-12114, 2020.
+3. Liming Jiang, Bo Dai, Wayne Wu, and Chen Loy. Deceive D: Adaptive Pseudo Augmentation for GAN training with limited data. In M. Ranzato, A. Beygelzimer, Y. Dauphin, P. Liang, and J. Vaughan (eds) Adv Neural Inf Syst Process, Curran Associates, Inc., 34:21655-21667, 2021.
+4. Shengyu Zhao, Zhijian Liu, Ji Lin, Jun-Yan Zhu, and Song Han. Differentiable augmentation for data-efficient GAN training. In H. Larochelle, M. Ranzato, R. Hadsell, M. Balcan, and H. Lin (eds) Adv Neural Inf Syst Process, Curran Associates, Inc., 33:7559-7570, 2020.
+5. Michela Antonelli et al. The Medical Segmentation Decathlon. Nat Commun, 13:e4128, 2022.
+6. Xiaosong Wang et al. ChestX-ray8: Hospital-scale chest X-ray database and benchmarks on weakly-supervised classification and localization of common thorax diseases. In CVPR, IEEE, pages 2097-2106, 2017.
+7. Tobias Heimann et al. Comparison and evaluation of methods for liver segmentation from CT datasets. IEEE Trans Med Imaging, 28(8):1251-1265, 2009.
+8. Olivier Bernard et al. Deep learning techniques for automatic MRI cardiac multi-structures segmentation and diagnosis: Is the problem solved? IEEE Trans Med Imaging, 37(11):2514-2525, 2018.
+9. Tuomas Kynkäänniemi, Tero Karras, Samuli Laine, Jaakko Lehtinen, and Timo Aila. Improved precision and recall metric for assessing generative moels. In H. Wallach et al. (eds) Adv Neural Inf Process Syst, Curran Associates, Inc., 32:3927-3936,2019.
+10. Minguk Kang, Joonghyuk Shin, and Jaesik Park. StudioGAN: A taxonomy and benchmark of GANs for image synthesis. TPAMI, 45(12):15725-15742.
+11. Christian Szegedy et al. Going deeper with convolutions. In CVPR, IEEE, pages 1-9, 2015.
+12. Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. Deep residual learning for image recognition. In CVPR, IEEE, pages 770-778, 2016.
+13. Mathilde Caron et al. Unsupervised learning of visual features by contrasting cluster assignments. In H. Larochelle, M. Ranzato, R. Hadsell, M. Balcan, and H. Lin (eds) Adv Neural Inf Process Syst, Curran Associates, Inc., 33:9912-9924, 2020.
+14. Mathilde Caron et al. Emerging properties in self-supervised vision transformers. In CVPR, IEEE, pages 9650-9660.
+15. Ze Liu et al. Swin transformer: Hierarchical vision transformer using shifted windows. In CVPR, IEEE, pages 10012-10022, 2021.
+
