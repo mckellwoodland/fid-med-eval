@@ -78,6 +78,8 @@ python radfid-main/calc_radfid.py --image_size {IMG_SIZE} \
 ```
 
 Evaluate the ImageNet Fréchet distances, precision, and recall with the StudioGAN fork. Possible backbones: `InceptionV3_tf`, `InceptionV3_torch`, `ResNet50_torch`, `SwAV_torch`, `DINO_torch`, `Swin-T_torch`.
+
+Note, to use the ResNet50 backbone, you'll need to use our 'fid_med_eval' branch of the StudioGAN fork.
 ```
 python PyTorch-StudioGAN-master/src/evaluate.py --metrics fid prdc \
                                                 --dset1 {GEN_DIR} \
