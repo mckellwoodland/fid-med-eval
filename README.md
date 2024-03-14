@@ -1,6 +1,6 @@
 # Feature Extraction for Generative Medical Imaging Evaluation: New Evidence Against an Evolving Trend - Official Repository
 
-<p><img src="https://github.com/mckellwoodland/fid-med-eval/blob/main/figures/graphical_abstract.png"
+<p><img src="https://github.com/mckellwoodland/fid-med-eval/blob/main/figures/figure1.png"
 </p>
 
 **Feature Extraction for Generative Medical Imaging Evaluation: New Evidence Against an Evolving Trend**
