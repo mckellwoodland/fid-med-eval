@@ -9,7 +9,7 @@ M. Woodland, A. Castelo, M. Al Taie, J. Albuquerque Marques Silva, M. Eltaher, F
 
 Abstract: *Fréchet Inception Distance (FID) is a widely used metric for assessing synthetic image quality. It relies on an ImageNet-based feature extractor, making its applicability to medical imaging unclear. A recent trend is to adapt FID to medical imaging through feature extractors trained on medical images. Our study challenges this practice by demonstrating that ImageNet-based extractors are more consistent and aligned with human judgment than their RadImageNet counterparts. We evaluated sixteen StyleGAN2 networks across four medical imaging modalities and four data augmentation techniques with Fréchet distances (FDs) computed using eleven ImageNet or RadImageNet-trained feature extractors. Comparison with human judgment via visual Turing tests revealed that ImageNet-based extractors produced rankings consistent with human judgment, with the FD derived from the ImageNet-trained SwAV extractor significantly correlating with expert evaluations. In contrast, RadImageNet-based rankings were volatile and inconsistent with human judgment. Our findings challenge prevailing assumptions, providing novel evidence that medical image-trained feature extractors do not inherently improve FDs and can even compromise their reliability.*
 
-Article available on [arXiv](https://arxiv.org/abs/2311.13717).
+Article was early accepted to MICCAI 2024. The preprint is available on [arXiv](https://arxiv.org/abs/2311.13717).
 
 # Training generative models
 
@@ -116,7 +116,7 @@ python statistical_tests.py --test {TEST} \
 
 # Citation
 
-If you have found our work useful, we would appreciate a citation of our arXiv submission.
+If you have found our work useful, we would appreciate a citation of our paper.
 ```
 @misc{woodland2024_fid_med,
       title={Feature Extraction for Generative Medical Imaging Evaluation: New Evidence Against an Evolving Trend}, 
