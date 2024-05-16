@@ -165,7 +165,7 @@ If you have found our work useful, we would appreciate a citation of our paper.
 
 # Acknowledgments
 
-Research reported in this publication was supported in part by resources of the Image Guided Cancer Therapy Research Program at The University of Texas MD Anderson Cancer Center, a generous gift from the Apache Corporation, the National Institutes of Health/NCI under award number P30CA016672, and the Tumor Measurement Initiative through the MD Anderson Strategic Initiative Development Program (STRIDE). We thank the NIH Clinical Center for the ChestX-ray14 dataset, and the StudioGAN authors<sup>10<\sup> for their FD implementations.
+Research reported in this publication was supported in part by resources of the Image Guided Cancer Therapy Research Program at The University of Texas MD Anderson Cancer Center, a generous gift from the Apache Corporation, the National Institutes of Health/NCI under award number P30CA016672, and the Tumor Measurement Initiative through the MD Anderson Strategic Initiative Development Program (STRIDE). We thank the NIH Clinical Center for the ChestX-ray14 dataset, the StudioGAN authors<sup>10</sup> for their FD implementations and the RadImageNet creators for providing models for public use.
 
 # Referenc
 1. Tero Karras *et al.* Analyzing and improving the image quality of StyleGAN. In CVPR, IEEE, pages 8110-8119, 2020.
