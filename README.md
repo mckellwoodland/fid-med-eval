@@ -72,14 +72,49 @@ stylegan2-ada-pytorch/docker_run.sh python stylegan2-ada-pytorch/generate.py --n
                                                                              --outdir {OUT_DIR}
 ```
 
-Evaluate the RadFID.
+Calculate FDs with RadImageNet<sup>16</sup> models. You'll need to download the Tensorflow models [here](https://github.com/BMEII-AI/RadImageNet). Then you can extract the features. We extracted features for 50,000 generated images and the full datasets.
 ```
-python radfid-main/calc_radfid.py --image_size {IMG_SIZE} \
-                                  --img_dir_gen {GEN_DIR} \
-                                  --img_dir_real {REAL_DIR} \
-                                  --batch_size {BATCH_SIZE} \
-                                  --metric radfid \
-                                  --out_path {LOG_PATH}
+usage: extract_features.py [-h] -i IMG_DIR -f FEATURE_DIR [-a ARCHITECTURE] [-d DATASET]
+                           [-m MODEL_DIR] [-g GPU_NODE] [-s IMG_SIZE] [-b BATCH_SIZE]
+
+Required Arguments:
+  -i IMG_DIR, --img_dir IMG_DIR
+                        Specify the path to the folder that contains the images to be embedded within
+                        a folder labeled class0.
+  -f FEATURE_DIR, --feature_dir FEATURE_DIR
+                        Specify the path to the folder where the features should be saved. This folder
+                        will be further subdivided by feature extraction architecture and dataset
+                        automatically.
+
+Optional Arguments:
+  -a ARCHITECTURE, --architecture ARCHITECTURE
+                        Specify which feature extraction architecture to use. Options: "IRV2",
+                        "ResNet50", "DenseNet121", "InceptionV3". Defaults to "InceptionV3".
+  -d DATASET, --dataset DATASET
+                        Specify which dataset the feature extractor should be trained on. Options:
+                        "RadImageNet", "ImageNet". Defaults to "ImageNet".
+  -m MODEL_DIR, --model_dir MODEL_DIR
+                        Specify the path to the folder that contains the RadImageNet-pretrained models
+                        in TensorFlow. Required if the dataset to be evaluated is RadImageNet.
+  -g GPU_NODE, --gpu_node GPU_NODE
+                        Specify the GPU node. Defaults to 0.
+  -s IMG_SIZE, --img_size IMG_SIZE
+                        Specify the height/width of the images. Defaults to 512.
+  -b BATCH_SIZE, --batch_size BATCH_SIZE
+                        Specify the batch size for inference.
+```
+
+Once the features are extracted, you can calcute the FD.
+```
+usage: fd.py [-h] -f1 FEAT_DIR1 -f2 FEAT_DIR2
+
+Required Arguments:
+  -f1 FEAT_DIR1, --feat_dir1 FEAT_DIR1
+                        Specify the path to the folder that contains the first group of
+                        embeddings.
+  -f2 FEAT_DIR2, --feat_dir2 FEAT_DIR2
+                        Specify the path to the folder that contains the second group of
+                        embeddings.
 ```
 
 Evaluate the ImageNet Fréchet distances, precision, and recall<sup>9</sup> with the StudioGAN<sup>10</sup> fork. Possible backbones: `InceptionV3_tf`, `InceptionV3_torch`<sup>11</sup>, `ResNet50_torch`<sup>12</sup>, `SwAV_torch`<sup>13</sup>, `DINO_torch`<sup>14</sup>, `Swin-T_torch`<sup>15</sup>.
@@ -130,22 +165,22 @@ If you have found our work useful, we would appreciate a citation of our paper.
 
 # Acknowledgments
 
-Research reported in this publication was supported in part by resources of the Image Guided Cancer Therapy Research Program at The University of Texas MD Anderson Cancer Center, a generous gift from the Apache Corporation, the National Institutes of Health/NCI under award number P30CA016672, and the Tumor Measurement Initiative through the MD Anderson Strategic Initiative Development Program (STRIDE). We thank the NIH Clinical Center for the ChestX-ray14 dataset, and the StudioGAN authors\sup{10} for their FD implementations.
+Research reported in this publication was supported in part by resources of the Image Guided Cancer Therapy Research Program at The University of Texas MD Anderson Cancer Center, a generous gift from the Apache Corporation, the National Institutes of Health/NCI under award number P30CA016672, and the Tumor Measurement Initiative through the MD Anderson Strategic Initiative Development Program (STRIDE). We thank the NIH Clinical Center for the ChestX-ray14 dataset, and the StudioGAN authors<sup>10<\sup> for their FD implementations.
 
 # Referenc
-1. Tero Karras et al. Analyzing and improving the image quality of StyleGAN. In CVPR, IEEE, pages 8110-8119, 2020.
-2. Tero Karras et al. Training generative adversarial networks with limited data. In H. Larochelle, M. Ranzato, R. Hadsell, M. Balcan, and H. Lin (eds) Adv Neural Inf Syst Process, Curran Associates, Inc., 33:12104-12114, 2020.
+1. Tero Karras *et al.* Analyzing and improving the image quality of StyleGAN. In CVPR, IEEE, pages 8110-8119, 2020.
+2. Tero Karras *et al.* Training generative adversarial networks with limited data. In H. Larochelle, M. Ranzato, R. Hadsell, M. Balcan, and H. Lin (eds) Adv Neural Inf Syst Process, Curran Associates, Inc., 33:12104-12114, 2020.
 3. Liming Jiang, Bo Dai, Wayne Wu, and Chen Loy. Deceive D: Adaptive Pseudo Augmentation for GAN training with limited data. In M. Ranzato, A. Beygelzimer, Y. Dauphin, P. Liang, and J. Vaughan (eds) Adv Neural Inf Syst Process, Curran Associates, Inc., 34:21655-21667, 2021.
 4. Shengyu Zhao, Zhijian Liu, Ji Lin, Jun-Yan Zhu, and Song Han. Differentiable augmentation for data-efficient GAN training. In H. Larochelle, M. Ranzato, R. Hadsell, M. Balcan, and H. Lin (eds) Adv Neural Inf Syst Process, Curran Associates, Inc., 33:7559-7570, 2020.
-5. Michela Antonelli et al. The Medical Segmentation Decathlon. Nat Commun, 13:e4128, 2022.
-6. Xiaosong Wang et al. ChestX-ray8: Hospital-scale chest X-ray database and benchmarks on weakly-supervised classification and localization of common thorax diseases. In CVPR, IEEE, pages 2097-2106, 2017.
-7. Tobias Heimann et al. Comparison and evaluation of methods for liver segmentation from CT datasets. IEEE Trans Med Imaging, 28(8):1251-1265, 2009.
-8. Olivier Bernard et al. Deep learning techniques for automatic MRI cardiac multi-structures segmentation and diagnosis: Is the problem solved? IEEE Trans Med Imaging, 37(11):2514-2525, 2018.
+5. Michela Antonelli *et al.* The Medical Segmentation Decathlon. Nat Commun, 13:e4128, 2022.
+6. Xiaosong Wang *et al.* ChestX-ray8: Hospital-scale chest X-ray database and benchmarks on weakly-supervised classification and localization of common thorax diseases. In CVPR, IEEE, pages 2097-2106, 2017.
+7. Tobias Heimann *et al.* Comparison and evaluation of methods for liver segmentation from CT datasets. IEEE Trans Med Imaging, 28(8):1251-1265, 2009.
+8. Olivier Bernard *et al.* Deep learning techniques for automatic MRI cardiac multi-structures segmentation and diagnosis: Is the problem solved? IEEE Trans Med Imaging, 37(11):2514-2525, 2018.
 9. Tuomas Kynkäänniemi, Tero Karras, Samuli Laine, Jaakko Lehtinen, and Timo Aila. Improved precision and recall metric for assessing generative models. In H. Wallach et al. (eds) Adv Neural Inf Process Syst, Curran Associates, Inc., 32:3927-3936,2019.
 10. Minguk Kang, Joonghyuk Shin, and Jaesik Park. StudioGAN: A taxonomy and benchmark of GANs for image synthesis. TPAMI, 45(12):15725-15742.
-11. Christian Szegedy et al. Going deeper with convolutions. In CVPR, IEEE, pages 1-9, 2015.
+11. Christian Szegedy *et al.* Going deeper with convolutions. In CVPR, IEEE, pages 1-9, 2015.
 12. Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. Deep residual learning for image recognition. In CVPR, IEEE, pages 770-778, 2016.
-13. Mathilde Caron et al. Unsupervised learning of visual features by contrasting cluster assignments. In H. Larochelle, M. Ranzato, R. Hadsell, M. Balcan, and H. Lin (eds) Adv Neural Inf Process Syst, Curran Associates, Inc., 33:9912-9924, 2020.
-14. Mathilde Caron et al. Emerging properties in self-supervised vision transformers. In CVPR, IEEE, pages 9650-9660.
-15. Ze Liu et al. Swin transformer: Hierarchical vision transformer using shifted windows. In CVPR, IEEE, pages 10012-10022, 2021.
-
+13. Mathilde Caron *et al.* Unsupervised learning of visual features by contrasting cluster assignments. In H. Larochelle, M. Ranzato, R. Hadsell, M. Balcan, and H. Lin (eds) Adv Neural Inf Process Syst, Curran Associates, Inc., 33:9912-9924, 2020.
+14. Mathilde Caron *et al.* Emerging properties in self-supervised vision transformers. In CVPR, IEEE, pages 9650-9660.
+15. Ze Liu *et al.* Swin transformer: Hierarchical vision transformer using shifted windows. In CVPR, IEEE, pages 10012-10022, 2021.
+16. X. Mei *et al.* RadImageNet: An Open Radiologic Deep Learning Research Dataset for Effective Transfer Learning. *Radiol. Artif. Intell.*, vol. 4, no. 5, pp. e210315, Jul. 2022, doi: 10.1148/ryai.210315.
