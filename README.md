@@ -104,7 +104,7 @@ Optional Arguments:
                         Specify the batch size for inference.
 ```
 
-Once the features are extracted, you can calcute the FD.
+Once the features are extracted, you can calculate the FD.
 ```
 usage: fd.py [-h] -f1 FEAT_DIR1 -f2 FEAT_DIR2
 
@@ -124,7 +124,7 @@ The StudioGAN docker container can be pulled by:
 docker pull alex4727/experiment:pytorch113_cuda116
 ```
 
-Note, to use the ResNet50 backbone, you'll need to use our 'fid_med_eval' branch of the StudioGAN fork.
+Note that to use the ResNet50 backbone, you'll need to use our 'fid_med_eval' branch of the StudioGAN fork.
 ```
 python PyTorch-StudioGAN-master/src/evaluate.py --metrics fid prdc \
                                                 --dset1 {GEN_DIR} \
@@ -134,14 +134,14 @@ python PyTorch-StudioGAN-master/src/evaluate.py --metrics fid prdc \
                                                 --out_path {LOG_PATH}
 ```
 
-To get the relative Fréchet distance, divide by the Fréchet distance calculated on a random split of the real data. You may use the same commands as above to do so, except switch the `GEN_DIR` and `REAL_DIR` for the two halfs of the dataset. Code for splitting a datset into two folders in available in `utils`.
+To get the relative Fréchet distance, divide by the Fréchet distance calculated on a random split of the real data. You may use the same commands as above to do so, except switch the `GEN_DIR` and `REAL_DIR` for the two halves of the dataset. Code for splitting a dataset into two folders is available in `utils`.
 ```
 python split_datasets.py --in_dir {FULL_DIR} \
                          --out_dir1 {HALF1_OUT_DIR} \
                          --out_dir2 {HALF2_OUT_DIR}
 ```
 
-Functionality to run all statistical tests is also available in `utils`. Possible tests (not case-sensitive): Kolgomorov-Smirnov `KS`, paired *t* test `Pair`, indepdent *t* test `Ind_T`, and the Pearson correlation `Pearson`.
+The functionality to run all statistical tests is also available in `utils`. Possible tests (not case-sensitive): Kolgomorov-Smirnov `KS`, paired *t* test `Pair`, indepdent *t* test `Ind_T`, and the Pearson correlation `Pearson`.
 ```
 python statistical_tests.py --test {TEST} \
                             --csv {RESULT_CSV} \
@@ -151,7 +151,7 @@ python statistical_tests.py --test {TEST} \
 
 # Model Weights
 
-The StyleGAN2 weights from our paper are available at this [Google Drive](https://drive.google.com/drive/folders/1gC1EnwLfcDjTj6iNBOei2dcPm4CApLQu?usp=sharing). The weights are split into folders by dataset. Each model is named as follows `stylegan-{AUG}-{KIMG}-{FID}-{INCLUDED}.pkl` where `AUG` is the augmentation technique, `KIMG` is the KIMG that the model was saved at, `FID` is the FID of the model, and `INCLUDED` is either `end` or `bestFID` to distinguish whether the model contained the best FID or was the end of training.
+The StyleGAN2 weights from our paper are available at this [Google Drive](https://drive.google.com/drive/folders/1gC1EnwLfcDjTj6iNBOei2dcPm4CApLQu?usp=sharing). The weights are split into folders by dataset. Each model is named as follows `stylegan-{AUG}-{KIMG}-{FID}.pkl` where `AUG` is the augmentation technique, `KIMG` is the KIMG that the model was saved at, and `FID` is the FID of the model.
 
 # Citation
 
