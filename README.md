@@ -149,6 +149,10 @@ python statistical_tests.py --test {TEST} \
                             --split {LABEL_COL}
 ```
 
+# Model Weights
+
+The StyleGAN2 weights from our paper are available at this [Google Drive](https://drive.google.com/drive/folders/1gC1EnwLfcDjTj6iNBOei2dcPm4CApLQu?usp=sharing). The weights are split into folders by dataset. Each model is named as follows `stylegan-{AUG}-{KIMG}-{FID}-{INCLUDED}.pkl` where `AUG` is the augmentation technique, `KIMG` is the KIMG that the model was saved at, `FID` is the FID of the model, and `INCLUDED` is either `end` or `bestFID` to distinguish whether the model contained the best FID or was the end of training.
+
 # Citation
 
 If you have found our work useful, we would appreciate a citation of our paper.
@@ -162,11 +166,6 @@ If you have found our work useful, we would appreciate a citation of our paper.
       primaryClass={cs.CV}
 }
 ```
-
-# Model Weights
-
-The StyleGAN2 weights from our paper are available at this [Google Drive](https://drive.google.com/drive/folders/1gC1EnwLfcDjTj6iNBOei2dcPm4CApLQu?usp=sharing).
-
 # Acknowledgments
 
 Research reported in this publication was supported in part by resources of the Image Guided Cancer Therapy Research Program at The University of Texas MD Anderson Cancer Center, a generous gift from the Apache Corporation, the National Institutes of Health/NCI under award number P30CA016672, and the Tumor Measurement Initiative through the MD Anderson Strategic Initiative Development Program (STRIDE). We thank the NIH Clinical Center for the ChestX-ray14 dataset, the StudioGAN authors<sup>10</sup> for their FD implementations, and the RadImageNet creators for providing models for public use.
