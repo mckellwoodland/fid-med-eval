@@ -9,7 +9,7 @@ M. Woodland, A. Castelo, M. Al Taie, J. Albuquerque Marques Silva, M. Eltaher, F
 
 Abstract: *Fréchet Inception Distance (FID) is a widely used metric for assessing synthetic image quality. It relies on an ImageNet-based feature extractor, making its applicability to medical imaging unclear. A recent trend is to adapt FID to medical imaging through feature extractors trained on medical images. Our study challenges this practice by demonstrating that ImageNet-based extractors are more consistent and aligned with human judgment than their RadImageNet counterparts. We evaluated sixteen StyleGAN2 networks across four medical imaging modalities and four data augmentation techniques with Fréchet distances (FDs) computed using eleven ImageNet or RadImageNet-trained feature extractors. Comparison with human judgment via visual Turing tests revealed that ImageNet-based extractors produced rankings consistent with human judgment, with the FD derived from the ImageNet-trained SwAV extractor significantly correlating with expert evaluations. In contrast, RadImageNet-based rankings were volatile and inconsistent with human judgment. Our findings challenge prevailing assumptions, providing novel evidence that medical image-trained feature extractors do not inherently improve FDs and can even compromise their reliability.*
 
-Article was early accepted to MICCAI 2024. The preprint is available on [arXiv](https://arxiv.org/abs/2311.13717).
+The article was early accepted to MICCAI 2024. The preprint is available on [arXiv](https://arxiv.org/abs/2311.13717).
 
 # Training generative models
 
@@ -163,9 +163,13 @@ If you have found our work useful, we would appreciate a citation of our paper.
 }
 ```
 
+# Model Weights
+
+The StyleGAN2 weights from our paper are available at this [Google Drive](https://drive.google.com/drive/folders/1gC1EnwLfcDjTj6iNBOei2dcPm4CApLQu?usp=sharing).
+
 # Acknowledgments
 
-Research reported in this publication was supported in part by resources of the Image Guided Cancer Therapy Research Program at The University of Texas MD Anderson Cancer Center, a generous gift from the Apache Corporation, the National Institutes of Health/NCI under award number P30CA016672, and the Tumor Measurement Initiative through the MD Anderson Strategic Initiative Development Program (STRIDE). We thank the NIH Clinical Center for the ChestX-ray14 dataset, the StudioGAN authors<sup>10</sup> for their FD implementations and the RadImageNet creators for providing models for public use.
+Research reported in this publication was supported in part by resources of the Image Guided Cancer Therapy Research Program at The University of Texas MD Anderson Cancer Center, a generous gift from the Apache Corporation, the National Institutes of Health/NCI under award number P30CA016672, and the Tumor Measurement Initiative through the MD Anderson Strategic Initiative Development Program (STRIDE). We thank the NIH Clinical Center for the ChestX-ray14 dataset, the StudioGAN authors<sup>10</sup> for their FD implementations, and the RadImageNet creators for providing models for public use.
 
 # Referenc
 1. Tero Karras *et al.* Analyzing and improving the image quality of StyleGAN. In CVPR, IEEE, pages 8110-8119, 2020.
