@@ -155,7 +155,7 @@ The StyleGAN2 weights from our paper are available at this [Google Drive](https:
 
 # Additional Results
 
-Individual participant results for each visual Turing test are available in the `additional_results` directory. The directory further contains a depiction of randomly generated images from each model. Finally, the directory contains Precision and Recall metrics calculated with various backbone architectures.
+Individual participant results for each visual Turing test are available in the `additional_results` directory. The directory further contains a depiction of randomly generated images from each model. Finally, the directory contains Improved Precision<sup>9</sup> and Improved Recall<sup>9</sup> metrics calculated with various backbone architectures.
 
 # Citation
 
@@ -176,18 +176,18 @@ Research reported in this publication was supported in part by resources of the 
 
 # Referenc
 1. Tero Karras *et al.* Analyzing and improving the image quality of StyleGAN. In CVPR, IEEE, pages 8110-8119, 2020.
-2. Tero Karras *et al.* Training generative adversarial networks with limited data. In H. Larochelle, M. Ranzato, R. Hadsell, M. Balcan, and H. Lin (eds) Adv Neural Inf Syst Process, Curran Associates, Inc., 33:12104-12114, 2020.
-3. Liming Jiang, Bo Dai, Wayne Wu, and Chen Loy. Deceive D: Adaptive Pseudo Augmentation for GAN training with limited data. In M. Ranzato, A. Beygelzimer, Y. Dauphin, P. Liang, and J. Vaughan (eds) Adv Neural Inf Syst Process, Curran Associates, Inc., 34:21655-21667, 2021.
-4. Shengyu Zhao, Zhijian Liu, Ji Lin, Jun-Yan Zhu, and Song Han. Differentiable augmentation for data-efficient GAN training. In H. Larochelle, M. Ranzato, R. Hadsell, M. Balcan, and H. Lin (eds) Adv Neural Inf Syst Process, Curran Associates, Inc., 33:7559-7570, 2020.
+2. Tero Karras *et al.* Training generative adversarial networks with limited data. In *et al.* (eds) Adv Neural Inf Syst Process, Curran Associates, Inc., 33:12104-12114, 2020.
+3. Liming Jiang *et al.* Deceive D: Adaptive Pseudo Augmentation for GAN training with limited data. In M. Ranzato *et al.* (eds) Adv Neural Inf Syst Process, Curran Associates, Inc., 34:21655-21667, 2021.
+4. Shengyu Zhao *et al.* Differentiable augmentation for data-efficient GAN training. In H. Larochelle *et al.* (eds) Adv Neural Inf Syst Process, Curran Associates, Inc., 33:7559-7570, 2020.
 5. Michela Antonelli *et al.* The Medical Segmentation Decathlon. Nat Commun, 13:e4128, 2022.
 6. Xiaosong Wang *et al.* ChestX-ray8: Hospital-scale chest X-ray database and benchmarks on weakly-supervised classification and localization of common thorax diseases. In CVPR, IEEE, pages 2097-2106, 2017.
 7. Tobias Heimann *et al.* Comparison and evaluation of methods for liver segmentation from CT datasets. IEEE Trans Med Imaging, 28(8):1251-1265, 2009.
 8. Olivier Bernard *et al.* Deep learning techniques for automatic MRI cardiac multi-structures segmentation and diagnosis: Is the problem solved? IEEE Trans Med Imaging, 37(11):2514-2525, 2018.
-9. Tuomas Kynkäänniemi, Tero Karras, Samuli Laine, Jaakko Lehtinen, and Timo Aila. Improved precision and recall metric for assessing generative models. In H. Wallach et al. (eds) Adv Neural Inf Process Syst, Curran Associates, Inc., 32:3927-3936,2019.
-10. Minguk Kang, Joonghyuk Shin, and Jaesik Park. StudioGAN: A taxonomy and benchmark of GANs for image synthesis. TPAMI, 45(12):15725-15742.
+9. Tuomas Kynkäänniemi *et al.* Improved precision and recall metric for assessing generative models. In H. Wallach *et al.* (eds) Adv Neural Inf Process Syst, Curran Associates, Inc., 32:3927-3936,2019.
+10. Minguk Kang *et al.* StudioGAN: A taxonomy and benchmark of GANs for image synthesis. TPAMI, 45(12):15725-15742.
 11. Christian Szegedy *et al.* Going deeper with convolutions. In CVPR, IEEE, pages 1-9, 2015.
-12. Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. Deep residual learning for image recognition. In CVPR, IEEE, pages 770-778, 2016.
-13. Mathilde Caron *et al.* Unsupervised learning of visual features by contrasting cluster assignments. In H. Larochelle, M. Ranzato, R. Hadsell, M. Balcan, and H. Lin (eds) Adv Neural Inf Process Syst, Curran Associates, Inc., 33:9912-9924, 2020.
+12. Kaiming He *et al.* Deep residual learning for image recognition. In CVPR, IEEE, pages 770-778, 2016.
+13. Mathilde Caron *et al.* Unsupervised learning of visual features by contrasting cluster assignments. In H. Larochelle *et al.* (eds) Adv Neural Inf Process Syst, Curran Associates, Inc., 33:9912-9924, 2020.
 14. Mathilde Caron *et al.* Emerging properties in self-supervised vision transformers. In CVPR, IEEE, pages 9650-9660.
 15. Ze Liu *et al.* Swin transformer: Hierarchical vision transformer using shifted windows. In CVPR, IEEE, pages 10012-10022, 2021.
-16. X. Mei *et al.* RadImageNet: An Open Radiologic Deep Learning Research Dataset for Effective Transfer Learning. *Radiol. Artif. Intell.*, vol. 4, no. 5, pp. e210315, Jul. 2022, doi: 10.1148/ryai.210315.
+16. X. Mei *et al.* RadImageNet: An open radiologic deep learning research dataset for effective transfer learning. Radiol. Artif. Intell., vol. 4, no. 5, pp. e210315, Jul. 2022, doi: 10.1148/ryai.210315.
