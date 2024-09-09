@@ -151,7 +151,7 @@ python statistical_tests.py --test {TEST} \
 
 # Model Weights
 
-The StyleGAN2 weights from our paper are available at this [Google Drive](https://drive.google.com/drive/folders/1gC1EnwLfcDjTj6iNBOei2dcPm4CApLQu?usp=sharing). The weights are split into folders by dataset. Each model is named as follows `stylegan-{AUG}-{KIMG}-{FID}.pkl` where `AUG` is the augmentation technique, `KIMG` is the KIMG that the model was saved at, and `FID` is the FID of the model.
+The StyleGAN2 weights from our paper are available on [Zenodo](https://zenodo.org/records/13730919). Each model is named as follows `stylegan-{AUG}-{KIMG}-{FID}.pkl` where `AUG` is the augmentation technique, `KIMG` is the KIMG that the model was saved at, and `FID` is the FID of the model.
 
 # Additional Results
 
