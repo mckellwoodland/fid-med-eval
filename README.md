@@ -174,7 +174,7 @@ If you have found our work useful, we would appreciate a citation of our paper.
 
 Research reported in this publication was supported in part by resources of the Image Guided Cancer Therapy Research Program at The University of Texas MD Anderson Cancer Center, a generous gift from the Apache Corporation, the National Institutes of Health/NCI under award number P30CA016672, and the Tumor Measurement Initiative through the MD Anderson Strategic Initiative Development Program (STRIDE). We thank the NIH Clinical Center for the ChestX-ray14 dataset, the StudioGAN authors<sup>10</sup> for their FD implementations, and the RadImageNet creators for providing models for public use.
 
-# Referenc
+# References
 1. Tero Karras *et al.* Analyzing and improving the image quality of StyleGAN. In CVPR, IEEE, pages 8110-8119, 2020.
 2. Tero Karras *et al.* Training generative adversarial networks with limited data. In *et al.* (eds) Adv Neural Inf Syst Process, Curran Associates, Inc., 33:12104-12114, 2020.
 3. Liming Jiang *et al.* Deceive D: Adaptive Pseudo Augmentation for GAN training with limited data. In M. Ranzato *et al.* (eds) Adv Neural Inf Syst Process, Curran Associates, Inc., 34:21655-21667, 2021.
