@@ -126,7 +126,7 @@ docker pull alex4727/experiment:pytorch113_cuda116
 
 Note that to use the ResNet50 backbone, you'll need to use our 'fid_med_eval' branch of the StudioGAN fork.
 ```
-python PyTorch-StudioGAN-master/src/evaluate.py --metrics fid prdc \
+python PyTorch-StudioGAN-master/src/evaluate.py -metrics fid prdc \
                                                 --dset1 {GEN_DIR} \
                                                 --dset2 {REAL_DIR} \
                                                 --post_resizer clean \
